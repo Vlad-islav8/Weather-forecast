@@ -1,33 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styled from 'styled-components'
+import Header from './Header/Header'
+import Main from './Main/Main'
+import Footer from './Footer/Footer'
+import { getCurrentPosition, getinitialazedApp } from './redux/selectors/initialazedSelectors'
+import { useSelector } from 'react-redux'
+import Loader from './Loader/Loader'
+import { useEffect } from 'react'
+import { usePosition, type PositionType, type usePositionType } from './customHooks/usePosition'
+import { setCurrentForecastCreator } from './redux/foreCastReducer'
+import { useAppDispatch } from './redux/store'
+import { initiazedApp } from './redux/initilizedReducer'
 
-function App() {
-  const [count, setCount] = useState(0)
+const AppStyle = styled.div`
+  background-color: red;
+`
+
+const Container = styled.div`
+  max-width: 85%;
+  margin: 0 auto;
+  background-color: green;
+
+`
+const App = () => {
+  const dispatch = useAppDispatch()
+  const initialazed:boolean = useSelector(getinitialazedApp)
+  const crd:usePositionType = usePosition()
+
+  useEffect(() => {
+    dispatch(setCurrentForecastCreator(crd.position))
+    dispatch(initiazedApp(crd))
+  }, [crd])
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {
+        initialazed ?
+          <AppStyle>
+            <Container>
+              <Header/>
+              <Main />
+              <Footer />
+            </Container>
+          </AppStyle> :
+          <Loader />
+      }
     </>
   )
 }
