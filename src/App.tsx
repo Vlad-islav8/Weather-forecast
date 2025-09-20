@@ -43,16 +43,29 @@ interface AppPropsType {
 
 const App: FC<AppPropsType> = ({ initialazed, crd, dateTime, hour, bgUrl }) => {
   const AppStyle = styled.div`
-  background-image: url(${bgUrl});
-  background-repeat: no-repeat;
-  background-size: cover;
   border: 0 2px 0 2px solid black;
+  max-height: 100vh;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(${bgUrl});
+    background-size: cover;
+    background-position: center;
+    backdrop-filter: blur(10px);
+    z-index: -1;
+  }
 `
   const Container = styled.div`
   max-width: 85%;
   margin: 0 auto;
-  background-color: green;
-
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 `
   return (
     <>

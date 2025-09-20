@@ -2,7 +2,7 @@ import { createSlice, } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit"
 import type { AppDispatchType } from "./store";
 import { geocodingAPI, getCurrentForecastAPI } from "../api/api";
-
+import errorBg from '../img/errorBg.jpeg'
 import type { DateTime } from "../utils/UNIXConverter";
 import UNIXConverter from "../utils/UNIXConverter";
 import type { PositionType } from "./initilizedReducer";
@@ -56,7 +56,7 @@ const initialState: foreCastReducerState = {
     currentCity: null,
     foreCastIconUrl: "https://openweathermap.org/img/wn/",
     foreCastIconId: '',
-    bgUrl: ''
+    bgUrl: errorBg
 }
 
 const foreCastReducer = createSlice({
@@ -81,7 +81,13 @@ const foreCastReducer = createSlice({
         },
         setBgUrl(state: foreCastReducerState, action:PayloadAction<number>) {
             const date = UNIXConverter(action.payload)
-            state.bgUrl = currentBg(date.time.hour)
+            const bg = currentBg(date.time.hour)
+            if(bg === '') {
+                state.bgUrl = errorBg
+            } else {
+                state.bgUrl = bg
+            }
+
         }
     }
 })
@@ -110,6 +116,7 @@ export const setCurrentForecastCreator = (position:PositionType) => {
         const { lat, lan } = position
         if (lat && lan) {
             const forecast = await getCurrentForecastAPI.getForecast(lat, lan)
+            debugger
             const Setforecast: ForecastType = {
                 currentForecast: forecast.main.temp,
                 description: forecast.weather[0].description,

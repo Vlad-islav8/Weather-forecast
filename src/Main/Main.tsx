@@ -17,12 +17,10 @@ const ForecastValueContainer = styled.section`
 `
 const Main = () => {
     const bgUrl = useSelector(getCurrentBgUrl)
-
     const MainS = styled.main`
     background-image: url(${bgUrl});
     background-repeat: no-repeat;
     background-size: cover;
-    height: 720px;
     `
     return (
         <MainS>
@@ -32,6 +30,7 @@ const Main = () => {
                     <ForecastValue />
                     <Forecast />
                 </ForecastValueContainer>
+                
             </ForeCastContainer>
 
         </MainS>

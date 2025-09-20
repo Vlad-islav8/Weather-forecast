@@ -44,6 +44,17 @@ const City = styled.h1`
     }
 `;
 
+const Logo = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const LogoText = styled.h1`
+    color: aliceblue;
+    font-weight: 500;
+    font-size: 2rem;
+`
+
 const Icon = styled.img`
     width: 5rem;
     height: 5rem;
@@ -140,7 +151,10 @@ const Header: FC<HeaderPropsType> = () => {
     return (
         <HeaderS>
             <City>{city}</City>
-            <Icon src={iconUrl} />
+            <Logo>
+                <Icon src={iconUrl} />
+                <LogoText>Бесплатный сервис для просмотра погоды</LogoText>
+            </Logo>
 
             {
                 (dateTime.date.day) ?

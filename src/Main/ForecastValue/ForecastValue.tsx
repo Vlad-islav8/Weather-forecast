@@ -7,7 +7,6 @@ const ForecastValueStyled = styled.div`
   background: #ffffff;
   border-radius: 16px;
   padding: 28px;
-  margin: 24px 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid #eaeaea;
   max-width: 400px;
@@ -22,8 +21,8 @@ const SectionTitle = styled.h3`
   font-size: 18px;
   font-weight: 600;
   color: #2d3748;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
   border-bottom: 2px solid #f1f5f9;
   
   @media (max-width: 768px) {
