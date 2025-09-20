@@ -1,4 +1,4 @@
-import { useEffect, useState, type FC } from 'react'
+
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import { getCity, getDate, getForeCastIconId, getForeCastIconUrl } from '../redux/selectors/foreCasteSelects'
