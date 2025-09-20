@@ -1,7 +1,0 @@
-
-
-const WeatherAClock = () => {
-    return (
-        <></>
-    )
-}

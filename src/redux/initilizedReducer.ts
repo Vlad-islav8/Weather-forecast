@@ -1,5 +1,4 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import currentBg from "../utils/currentBg";
 import { setCurrentForecastCreator } from "./foreCastReducer";
 import type { AppDispatchType } from "./store";
 

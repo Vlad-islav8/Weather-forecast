@@ -41,7 +41,7 @@ interface AppPropsType {
 }
 
 
-const App: FC<AppPropsType> = ({ initialazed, crd, dateTime, hour, bgUrl }) => {
+const App: FC<AppPropsType> = ({ initialazed, bgUrl }) => {
   const AppStyle = styled.div`
   border: 0 2px 0 2px solid black;
   max-height: 100vh;

@@ -134,20 +134,13 @@ const Timenow = styled.h2`
     }
 `;
 
-interface HeaderPropsType {
-}
-const Header: FC<HeaderPropsType> = () => {
-    const [currentTime, setCurrentTime] = useState<Date | null>(null)
 
+const Header = () => {
     const city = useSelector(getCity)
     const foreCastIconUrl: string = useSelector(getForeCastIconUrl)
     const foreCastIconId: string = useSelector(getForeCastIconId)
     const iconUrl = foreCastIconUrl + foreCastIconId + '@2x.png'
     const dateTime: DateTime = useSelector(getDate)
-
-    useEffect(() => {
-        const clientTime = new Date()
-    })
     return (
         <HeaderS>
             <City>{city}</City>

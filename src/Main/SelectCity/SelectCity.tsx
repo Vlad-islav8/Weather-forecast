@@ -35,10 +35,12 @@ const SelectSityForm = styled.div`
 const SelectCity = () => {
     const dispatch = useAppDispatch()
     const currentCity: string | null = useSelector(getCity)
-    const inputRef = useRef(null)
+    const inputRef = useRef<HTMLInputElement>(null)
     const [currentCityState, setCurrentCityState] = useState<string | null>(currentCity)
     const onInputChange = () => {
-        setCurrentCityState(inputRef.current?.value)
+        if(inputRef.current) {
+            setCurrentCityState(inputRef.current?.value)
+        }
     }
     const onSubmit = () => {
         if (currentCityState) {

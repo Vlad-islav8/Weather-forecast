@@ -96,33 +96,6 @@ const DotsLoader = styled.span`
   }
 `;
 
-const dot1 = keyframes`
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-`;
-
-const dot2 = keyframes`
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(24px, 0);
-  }
-`;
-
-const dot3 = keyframes`
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0);
-  }
-`;
-
 const Preloader = ({ variant = "spinner", size = "medium", color = "#3498db" }) => {
   const getSize = () => {
     switch (size) {
