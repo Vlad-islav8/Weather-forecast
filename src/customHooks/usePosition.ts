@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export interface PositionType {
-    lat: number | undefined
-    lan: number | undefined
-}
+ 
 
 export interface usePositionType {
     position: PositionType
@@ -33,7 +30,6 @@ export const usePosition: usePositionFunctionType = () => {
         }
         const error = () => { }
         geo.getCurrentPosition(success, error)
-        debugger
     }, []);
     return { position, error };
 }

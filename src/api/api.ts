@@ -16,7 +16,7 @@ export const geocodingAPI = {
         return (
             geocoding
                 .get(`direct?q=${city},3166-1&limit=5&appid=${apiKey}`)
-                .then(responce => responce)
+                .then(responce => responce.data)
         )
     }
 }
@@ -26,7 +26,7 @@ export const getCurrentForecastAPI = {
     getForecast(lat:number, lon:number) {
         return (
             getCurrentForecast
-                .get(`weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
+                .get(`weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric&lang=ru`)
                 .then(responce => responce.data)
         )
     }

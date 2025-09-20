@@ -12,3 +12,15 @@ export const getForeCastIconId = (state:RootState) => {
     return state.foreсast.foreCastIconId
 }
 
+
+export const getForecast = (state:RootState) => {
+    return state.foreсast.foreCast
+}
+
+export const getDate = (state:RootState) => {
+    return state.foreсast.DT
+}
+
+export const getCurrentBgUrl = (state:RootState) => {
+    return state.foreсast.bgUrl
+}

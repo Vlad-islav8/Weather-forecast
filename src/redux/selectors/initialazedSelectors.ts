@@ -1,4 +1,4 @@
-import type { PositionType } from "../../customHooks/usePosition"
+import type { PositionType } from "../initilizedReducer"
 import type { RootState } from "../store"
 
 type getinitialazedAppType = (state:RootState) => boolean
@@ -12,4 +12,9 @@ export const getCurrentPosition:getCurrentPositionType = (state:RootState) => {
     return state.initilized.currentLocation
 }
 
+
+
+export const getCurrentHour = (state:RootState) => {
+    return state.initilized.currentHour
+}
 

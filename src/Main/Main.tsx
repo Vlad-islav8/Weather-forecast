@@ -1,12 +1,39 @@
 import styled from 'styled-components'
+import SelectCity from './SelectCity/SelectCity'
+import { useSelector } from 'react-redux'
+import ForecastValue from './ForecastValue/ForecastValue'
+import { getCurrentBgUrl } from '../redux/selectors/foreCasteSelects'
+import Forecast from './Forecast'
 
-const MainS = styled.main`` 
+const ForeCastContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
 
+`
+const ForecastValueContainer = styled.section`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+`
 const Main = () => {
+    const bgUrl = useSelector(getCurrentBgUrl)
 
+    const MainS = styled.main`
+    background-image: url(${bgUrl});
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 720px;
+    `
     return (
         <MainS>
-   
+            <ForeCastContainer>
+                <SelectCity />
+                <ForecastValueContainer>
+                    <ForecastValue />
+                    <Forecast />
+                </ForecastValueContainer>
+            </ForeCastContainer>
+
         </MainS>
     )
 }
