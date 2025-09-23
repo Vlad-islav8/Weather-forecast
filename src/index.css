@@ -105,3 +105,8 @@ input[type='file'] {
   src:
     url("/weather-forecast/src/fonts/KrasnodarGroteskTrial/KrasnodarGroteskTrial.otf") format("otf"),
 }
+
+body {
+      background-color: #102e52;
+
+}

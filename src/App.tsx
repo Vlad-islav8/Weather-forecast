@@ -55,6 +55,7 @@ const App: FC<AppPropsType> = ({ initialazed, bgUrl }) => {
     background-image: url(${bgUrl});
     background-size: cover;
     background-position: center;
+
     backdrop-filter: blur(10px);
     z-index: -1;
   }

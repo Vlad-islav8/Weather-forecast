@@ -53,6 +53,10 @@ const LogoText = styled.h1`
     color: aliceblue;
     font-weight: 500;
     font-size: 2rem;
+    
+    @media(max-width:1200px) {
+        display: none;
+    }
 `
 
 const Icon = styled.img`
@@ -82,12 +86,6 @@ const DateNowContainer = styled.div`
     align-items: center;
     gap: 0.5rem;
     
-    @media (max-width: 768px) {
-        order: 3;
-        flex-direction: row;
-        justify-content: center;
-        gap: 1rem;
-    }
     
     @media (max-width: 480px) {
         flex-direction: column;

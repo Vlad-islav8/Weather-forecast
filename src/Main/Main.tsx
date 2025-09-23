@@ -14,6 +14,12 @@ const ForeCastContainer = styled.section`
 const ForecastValueContainer = styled.section`
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+     @media(max-width:768px) {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
 `
 const Main = () => {
     const bgUrl = useSelector(getCurrentBgUrl)
@@ -30,7 +36,6 @@ const Main = () => {
                     <ForecastValue />
                     <Forecast />
                 </ForecastValueContainer>
-                
             </ForeCastContainer>
 
         </MainS>
